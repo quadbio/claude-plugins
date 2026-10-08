@@ -1,0 +1,28 @@
+{
+  "name": "quadbio",
+  "owner": {
+    "name": "quadbio"
+  },
+  "metadata": {
+    "description": "Claude Code plugins from quadbio for single-cell and spatial genomics analysis."
+  },
+  "plugins": [
+    {
+      "name": "analysis-workflow",
+      "description": "Conventions, guard hooks and a small package for analysis repos where humans (notebooks) and coding agents (scripts) work side by side.",
+      "source": {
+        "source": "github",
+        "repo": "quadbio/analysis-workflow",
+        "ref": "v0.1.0"
+      }
+    },
+    {
+      "name": "cell-type-annotation",
+      "description": "Evidence-driven, project-agnostic cell-type annotation of pre-clustered single-cell and spatial transcriptomics data.",
+      "source": {
+        "source": "github",
+        "repo": "quadbio/cell-type-annotation"
+      }
+    }
+  ]
+}
