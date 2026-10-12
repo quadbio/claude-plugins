@@ -11,8 +11,8 @@
       "name": "analysis-workflow",
       "description": "Conventions, guard hooks and a small package for analysis repos where humans (notebooks) and coding agents (scripts) work side by side.",
       "source": {
-        "source": "github",
-        "repo": "quadbio/analysis-workflow",
+        "source": "url",
+        "url": "https://github.com/quadbio/analysis-workflow.git",
         "ref": "v0.1.1"
       }
     },
@@ -20,8 +20,8 @@
       "name": "cell-type-annotation",
       "description": "Evidence-driven, project-agnostic cell-type annotation of pre-clustered single-cell and spatial transcriptomics data.",
       "source": {
-        "source": "github",
-        "repo": "quadbio/cell-type-annotation"
+        "source": "url",
+        "url": "https://github.com/quadbio/cell-type-annotation.git"
       }
     }
   ]
