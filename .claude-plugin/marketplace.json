@@ -32,6 +32,15 @@
         "url": "https://github.com/quadbio/euler-hpc.git",
         "ref": "v0.1.0"
       }
+    },
+    {
+      "name": "sci-figures",
+      "description": "Nature-style research figures and their legends: outline, layout and visual conventions, export to editable PDFs, legend writing and independent reviews.",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/quadbio/sci-figures.git",
+        "ref": "v0.2.0"
+      }
     }
   ]
 }
