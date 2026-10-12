@@ -4,7 +4,7 @@
     "name": "quadbio"
   },
   "metadata": {
-    "description": "Claude Code plugins from quadbio for single-cell and spatial genomics analysis."
+    "description": "Claude Code plugins from quadbio: single-cell and spatial genomics analysis, and working on ETH Zurich's Euler cluster."
   },
   "plugins": [
     {
@@ -22,6 +22,15 @@
       "source": {
         "source": "url",
         "url": "https://github.com/quadbio/cell-type-annotation.git"
+      }
+    },
+    {
+      "name": "euler-hpc",
+      "description": "Coding agents on ETH Zurich's Euler cluster: the session's node, allocation and cluster rules at session start, and a skill for Slurm jobs.",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/quadbio/euler-hpc.git",
+        "ref": "v0.1.0"
       }
     }
   ]
