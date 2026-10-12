@@ -26,7 +26,7 @@
     },
     {
       "name": "euler-hpc",
-      "description": "Coding agents on ETH Zurich's Euler cluster: the session's node, allocation and cluster rules at session start, and a skill for Slurm jobs.",
+      "description": "Run coding agents on ETH Zurich's Euler cluster: node, allocation, storage rules and your setup at session start; a skill for Slurm jobs, software and data; jobs listed by session.",
       "source": {
         "source": "url",
         "url": "https://github.com/quadbio/euler-hpc.git",
