@@ -16,6 +16,9 @@ claude plugin marketplace add quadbio/claude-plugins
 claude plugin install <plugin>@quadbio
 ```
 
+Then turn on updates, which are off by default for marketplaces outside Anthropic's: in a session, `/plugin` →
+Marketplaces → quadbio → Enable auto-update ([docs](https://code.claude.com/docs/en/plugins/install#keep-plugins-updated)).
+
 Each plugin lives in its own repository; this one only lists them. A plugin's README opens with what it does
 and its parts, then `Use`, `Install` (pointing here), `Develop`, `Release`. To release a pinned plugin, bump its
 `ref` here.
