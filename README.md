@@ -24,14 +24,13 @@ Marketplaces → quadbio → Enable auto-update ([docs](https://code.claude.com/
 Plugins here are built to work together. A new plugin, and every change to one, follows these rules; anything they
 don't cover is the plugin's own choice.
 
-**One concern per plugin.**
-- A plugin owns one concern, which its name and its row above state. Before writing a new plugin, check whether one
-  here already owns the concern; if so, extend that one with a pull request.
-- A plugin doesn't restate another plugin's rules: its skill lists what other plugins own and defers to them, as
-  `cell-type-annotation` does for `analysis-workflow`.
-- A plugin that needs another to work lists it under `dependencies` in its `plugin.json`, so installing it installs
-  the other.
-- A skill's description covers only its own concern, so it doesn't trigger on another plugin's.
+**Overlap and dependencies.**
+- Plugins may overlap or offer another way of working, such as an alternative to `euler-hpc` or a plugin that
+  combines analysis setup with another aim. Its README names the plugins it overlaps with and how it differs, so
+  users can choose.
+- A plugin that builds on another defers to it instead of restating its rules, as `cell-type-annotation` does for
+  `analysis-workflow`. If it needs the other to work, it lists it under `dependencies` in its `plugin.json`, so
+  installing it installs the other, and its Develop section says to load both.
 
 **Little always-on context.** Rules go in skills, which load on demand. Hooks are for what must hold in every
 session, and print little at session start: every installed plugin's output lands in every session.
