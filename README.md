@@ -37,7 +37,7 @@ session, and print little at session start: every installed plugin's output land
 
 **One project layout**, so plugins agree on it:
 - a repo's agent instructions live in one `AGENTS.md`, which Claude Code and Codex both read without settings;
-- worktrees live in `.claude/worktrees/`, where `claude --worktree` creates them.
+- worktrees live in `.claude/worktrees/`, where `claude --worktree` creates them, and `.gitignore` lists that folder.
 
 **Repository.** Each plugin lives in its own quadbio repository; this one only lists them.
 - Its README opens with what it does and its parts, then `Use`, `Install` (pointing here), `Develop`, `Release`.
