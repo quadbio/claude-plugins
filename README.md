@@ -37,7 +37,9 @@ don't cover is the plugin's own choice.
 session, and print little at session start: every installed plugin's output lands in every session.
 
 **One project layout**, so plugins agree on it:
-- a repo's agent instructions live in one `AGENTS.md`, which Claude Code and Codex both read without settings;
+- a repo's agent instructions live in one `AGENTS.md`, which Codex reads, and a `CLAUDE.md` imports it
+  (`@AGENTS.md`) for Claude Code, which skips `AGENTS.md` when a `CLAUDE.local.md` or a parent folder's `CLAUDE.md`
+  exists;
 - worktrees live in `.claude/worktrees/`, where `claude --worktree` creates them, and `.gitignore` lists that folder.
 
 **Repository.** Each plugin lives in its own quadbio repository; this one only lists them.
