@@ -19,6 +19,34 @@ claude plugin install <plugin>@quadbio
 Then turn on updates, which are off by default for marketplaces outside Anthropic's: in a session, `/plugin` →
 Marketplaces → quadbio → Enable auto-update ([docs](https://code.claude.com/docs/en/plugins/install#keep-plugins-updated)).
 
-Each plugin lives in its own repository; this one only lists them. A plugin's README opens with what it does
-and its parts, then `Use`, `Install` (pointing here), `Develop`, `Release`. Entries follow each plugin's `main`: a
-plugin releases by bumping `version` in its `plugin.json`.
+## Conventions
+
+Plugins here are built to work together. A new plugin, and every change to one, follows these rules; anything they
+don't cover is the plugin's own choice.
+
+**Overlap and dependencies.**
+- Plugins may overlap or offer another way of working, such as an alternative to `euler-hpc` or a plugin that
+  combines analysis setup with another aim. Its README names the plugins it overlaps with and how it differs, so
+  users can choose.
+- A plugin that builds on another defers to it instead of restating its rules, as `cell-type-annotation` does for
+  `analysis-workflow`. If it needs the other to work, it lists it under `dependencies` in its `plugin.json`, so
+  installing it installs the other, and its Develop section says to load both.
+
+**Little always-on context.** Rules go in skills, which load on demand. Hooks are for what must hold in every
+session, and print little at session start: every installed plugin's output lands in every session.
+
+**One project layout**, so plugins agree on it:
+- a repo's agent instructions live in one `AGENTS.md`, which Claude Code and Codex both read without settings;
+- worktrees live in `.claude/worktrees/`, where `claude --worktree` creates them, and `.gitignore` lists that folder.
+
+**Repository.** Each plugin lives in its own quadbio repository; this one only lists them.
+- Its README opens with what it does and its parts, then `Use`, `Install` (pointing here), `Develop`, `Release`.
+- `claude plugin validate .` passes.
+- Values that differ between people or labs (paths, groups, hardware) are `userConfig` options, not hard-coded.
+- Repositories are public: no absolute paths, usernames, hostnames, private repository names or infrastructure
+  details.
+
+**Release.** Entries follow each plugin's `main`: a plugin releases by bumping `version` in its `plugin.json`.
+
+**Adding a plugin:** open a pull request here that adds its entry to `.claude-plugin/marketplace.json` and its row
+above.
