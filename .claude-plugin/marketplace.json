@@ -4,7 +4,7 @@
     "name": "quadbio"
   },
   "metadata": {
-    "description": "Claude Code plugins from quadbio: single-cell and spatial genomics analysis, and working on ETH Zurich's Euler cluster."
+    "description": "Claude Code plugins from quadbio: single-cell and spatial genomics analysis, research code and task handover, and working on ETH Zurich's Euler cluster."
   },
   "plugins": [
     {
@@ -29,6 +29,14 @@
       "source": {
         "source": "url",
         "url": "https://github.com/quadbio/euler-hpc.git"
+      }
+    },
+    {
+      "name": "research-agent-skills",
+      "description": "How agents write research code, run and hand over research tasks, and set up a project so Claude Code and Codex read the same instructions.",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/quadbio/research-agent-skills.git"
       }
     },
     {
