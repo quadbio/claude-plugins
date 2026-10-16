@@ -29,7 +29,7 @@ claude plugin update <plugin>@quadbio
 ```
 
 A plugin option's default applies only once the option is saved, and an update doesn't ask for the options it adds:
-set them in `/config`, where each option has a row.
+set them in `/plugin` → the plugin → Configure options.
 
 ## Conventions
 
