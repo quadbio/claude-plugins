@@ -28,6 +28,9 @@ claude plugin marketplace update quadbio
 claude plugin update <plugin>@quadbio
 ```
 
+A plugin option's default applies only once the option is saved, and an update doesn't ask for the options it adds:
+set them in `/plugin` → the plugin → Configure options.
+
 ## Conventions
 
 Plugins here are built to work together. A new plugin, and every change to one, follows these rules; anything they
@@ -54,6 +57,7 @@ session, and print little at session start: every installed plugin's output land
 - Its README opens with what it does and its parts, then `Use`, `Install` (pointing here), `Develop`, `Release`.
 - `claude plugin validate .` passes.
 - Values that differ between people or labs (paths, groups, hardware) are `userConfig` options, not hard-coded.
+  Hooks and skills get only saved values, never the `default`, so each works when an option is missing.
 - Repositories are public: no absolute paths, usernames, hostnames, private repository names or infrastructure
   details.
 
