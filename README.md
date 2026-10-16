@@ -20,6 +20,14 @@ claude plugin install <plugin>@quadbio
 Then turn on updates, which are off by default for marketplaces outside Anthropic's: in a session, `/plugin` →
 Marketplaces → quadbio → Enable auto-update ([docs](https://code.claude.com/docs/en/plugins/install#keep-plugins-updated)).
 
+Auto-update runs when Claude Code starts. To update by hand, refresh the marketplace, then the plugin; the new version
+applies from the next session:
+
+```bash
+claude plugin marketplace update quadbio
+claude plugin update <plugin>@quadbio
+```
+
 ## Conventions
 
 Plugins here are built to work together. A new plugin, and every change to one, follows these rules; anything they
