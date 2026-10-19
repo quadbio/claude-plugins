@@ -33,26 +33,25 @@ set them in `/plugin` → the plugin → Configure options.
 
 ## Conventions
 
-Plugins here are built to work together. A new plugin, and every change to one, follows these rules; anything they
-don't cover is the plugin's own choice.
+The plugins here form a growing, modular ecosystem that allows for alternative working styles while minimizing
+duplication and friction. A new plugin, and every change to one, follows these rules; anything they don't cover is
+the plugin's own choice.
 
-**Overlap and dependencies.**
-- Plugins may overlap or offer another way of working, such as an alternative to `euler-hpc` or a plugin that
-  combines analysis setup with another aim. Its README names the plugins it overlaps with and how it differs, so
-  users can choose.
-- A plugin that builds on another defers to it instead of restating its rules, as `cell-type-annotation` does for
-  `analysis-workflow`. If it needs the other to work, it lists it under `dependencies` in its `plugin.json`, so
-  installing it installs the other, and its Develop section says to load both.
-- When a second plugin needs what another holds, such as another cluster's plugin and the Slurm practice in
-  `euler-hpc`, the shared part moves into a plugin both depend on instead of being copied.
+**Modular.**
+- Each rule has one home. A plugin that builds on another defers to it instead of restating its rules, as
+  `cell-type-annotation` does for `analysis-workflow`. If it needs the other to work, it lists it under
+  `dependencies` in its `plugin.json`, so installing it installs the other, and its Develop section says to load
+  both.
+- Depending on a plugin whose other parts you don't use is fine. If those parts would contradict yours, agree with
+  its maintainers how to separate what you need, rather than copying it.
+- Skills are cut so that a request loads what it needs and little else; the skills of one plugin don't overlap.
+
+**Alternatives.** Plugins may overlap or offer another way of working, such as an alternative to `euler-hpc` or a
+plugin that combines analysis setup with another aim. Its README names the plugins it overlaps with, how it differs
+and whether they work installed together, so users can choose.
 
 **Little always-on context.** Rules go in skills, which load on demand. Hooks are for what must hold in every
-session, such as which machine it runs on, and print little at session start: every installed plugin's output
-lands in every session.
-
-**Skills by task.** A task people ask for on its own gets its own skill, so it loads only for that task; tasks done
-together, such as writing, submitting and monitoring a job, share one. Each trigger phrase belongs to one skill.
-Skills don't branch on where the session runs: the hook says that.
+session, and print little at session start: every installed plugin's output lands in every session.
 
 **One project layout**, so plugins agree on it:
 - a repo's agent instructions live in one `AGENTS.md`, which Codex reads, and a `CLAUDE.md` imports it
@@ -70,8 +69,7 @@ Skills don't branch on where the session runs: the hook says that.
 
 **Release.** Entries follow each plugin's `main`: a plugin releases by bumping `version` in its `plugin.json`.
 
-**Adding a plugin:** open a pull request here that adds its entry to `.claude-plugin/marketplace.json` and its row
-above.
-
-**Contributing to a plugin:** work that extends a plugin's domain goes into that plugin, in the skill or command its
-task belongs to; if there is none yet, the plugin's maintainers set it up first. A new domain is a new plugin.
+**Contributing.** Fixes and changes to a plugin's existing parts go straight to a pull request. For a new part, first
+agree with its maintainers in an issue where it goes; another way of doing its job, or work released on its own
+schedule, is a plugin of its own. To add a plugin, open a pull request here that adds its entry to
+`.claude-plugin/marketplace.json` and its row above.
