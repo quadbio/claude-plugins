@@ -46,9 +46,9 @@ the plugin's own choice.
   its maintainers how to separate what you need, rather than copying it.
 - Skills are cut so that a request loads what it needs and little else; the skills of one plugin don't overlap.
 
-**Alternatives.** Plugins may overlap or offer another way of working, such as an alternative to `euler-hpc` or a
-plugin that combines analysis setup with another aim. Its README names the plugins it overlaps with, how it differs
-and whether they work installed together, so users can choose.
+**Alternatives.** A plugin may do another plugin's job in a different way, such as an alternative to `euler-hpc`. It
+replaces that one plugin and builds on the rest like any other. Its README names the plugin it replaces, how it
+differs and whether both work installed together, so users can choose.
 
 **Little always-on context.** Rules go in skills, which load on demand. Hooks are for what must hold in every
 session, and print little at session start: every installed plugin's output lands in every session.
