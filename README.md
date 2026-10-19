@@ -6,7 +6,7 @@ A [Claude Code plugin marketplace](https://code.claude.com/docs/en/plugins/insta
 | --- | --- |
 | [analysis-workflow](https://github.com/quadbio/analysis-workflow) | Conventions, guard hooks and a small package for analysis repos where humans (notebooks) and coding agents (scripts) work side by side. |
 | [cell-type-annotation](https://github.com/quadbio/cell-type-annotation) | Evidence-driven cell-type annotation of pre-clustered single-cell and spatial data. |
-| [euler-hpc](https://github.com/quadbio/euler-hpc) | Run coding agents on ETH Zurich's Euler cluster: node, allocation, storage rules and your setup at session start; a skill for Slurm jobs, software and data; jobs listed by session. |
+| [euler-hpc](https://github.com/quadbio/euler-hpc) | Run coding agents on ETH Zurich's Euler cluster: node, allocation, storage rules and your setup at session start; skills for Slurm jobs, software and data; jobs listed by session. |
 | [research-agent-skills](https://github.com/quadbio/research-agent-skills) | How agents write research code, run and hand over research tasks, and set up a project so Claude Code and Codex read the same instructions. |
 | [sci-figures](https://github.com/quadbio/sci-figures) | Nature-style research figures and their legends, with a small matplotlib package for style, layout and export. |
 
@@ -43,9 +43,16 @@ don't cover is the plugin's own choice.
 - A plugin that builds on another defers to it instead of restating its rules, as `cell-type-annotation` does for
   `analysis-workflow`. If it needs the other to work, it lists it under `dependencies` in its `plugin.json`, so
   installing it installs the other, and its Develop section says to load both.
+- When a second plugin needs what another holds, such as another cluster's plugin and the Slurm practice in
+  `euler-hpc`, the shared part moves into a plugin both depend on instead of being copied.
 
 **Little always-on context.** Rules go in skills, which load on demand. Hooks are for what must hold in every
-session, and print little at session start: every installed plugin's output lands in every session.
+session, such as which machine it runs on, and print little at session start: every installed plugin's output
+lands in every session.
+
+**Skills by task.** A task people ask for on its own gets its own skill, so it loads only for that task; tasks done
+together, such as writing, submitting and monitoring a job, share one. Each trigger phrase belongs to one skill.
+Skills don't branch on where the session runs: the hook says that.
 
 **One project layout**, so plugins agree on it:
 - a repo's agent instructions live in one `AGENTS.md`, which Codex reads, and a `CLAUDE.md` imports it
@@ -65,3 +72,6 @@ session, and print little at session start: every installed plugin's output land
 
 **Adding a plugin:** open a pull request here that adds its entry to `.claude-plugin/marketplace.json` and its row
 above.
+
+**Contributing to a plugin:** work that extends a plugin's domain goes into that plugin, in the skill or command its
+task belongs to; if there is none yet, the plugin's maintainers set it up first. A new domain is a new plugin.
